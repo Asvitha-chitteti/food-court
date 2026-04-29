@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Food Court</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- 🔐 FULL SCREEN AUTH PAGE -->
+<div id="authPage" class="auth-page">
+
+  <div class="auth-box">
+    <h2>🍔 Food Court</h2>
+
+    <input id="authUser" placeholder="Username">
+    <input id="authPass" type="password" placeholder="Password">
+
+    <button onclick="authLogin()">Login</button>
+    <button onclick="authSignup()">Signup</button>
+  </div>
+
+</div>
+<div id="mainSite">
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <!-- MENU -->
+  <button onclick="toggleSidebar()">☰</button>
+
+  <!-- SEARCH (LEFT SIDE) -->
+  <div class="search-box">
+    <span class="search-icon">🔍︎</span>
+<input id="search" placeholder="Search food..." onkeyup="searchFood()">  </div>
+
+  <!-- RIGHT NAV -->
+  <div class="nav-links">
+    <a onclick="goTo('home')">Home</a>
+    <a onclick="goTo('about')">About</a>
+    <a onclick="goTo('veg')">Menu</a>
+    <a onclick="goTo('contact')">Contact</a>
+  </div>
+
+  <!-- CART -->
+  <button class="cart-btn" onclick="toggleCart()">🛒</button>
+<div id="authSection">
+  <button onclick="openSignup()">Signup</button>
+  <button onclick="openLogin()">Login</button>
+</div>
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <button onclick="toggleSidebar()">❌ Close</button>
+  <h2>Food Court</h2>
+
+  <button onclick="goTo('home')"> Home</button>
+  <button onclick="goTo('about')"> About</button>
+  <button onclick="goTo('veg')"> Menu</button>
+  <button onclick="goTo('contact')"> Contact</button>
+</div>
+
+<!-- 🔥 HERO -->
+<section id="home" class="home-banner">
+  <div class="overlay"></div>
+
+  <div class="banner-content">
+    <h1>Delicious Food Delivered Fast 🍔</h1>
+    <p>Order your favorite meals anytime, anywhere</p>
+    <button onclick="goTo('veg')">Order Now</button>
+  </div>
+
+</section>
+<section id="about" class="about-section">
+
+  <div class="about-wrapper">
+
+    <!-- LEFT TEXT -->
+    <div class="about-text">
+      <h2>About Us</h2>
+
+      <p>
+        Food Court is a modern food ordering platform designed to give you the best experience.
+        We serve fresh, hygienic, and delicious meals prepared with high-quality ingredients.
+      </p>
+
+      <button onclick="goTo('veg')">Explore Menu</button>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="about-img">
+      <img src="https://media.indulgexpress.com/indulgexpress%2F2025-09-25%2Fxgkd3sgz%2FAmbience-at-House-of-Telugu?w=480&auto=format%2Ccompress&fit=max">
+    </div>
+
+  </div>
+
+
+</section>
+<div class="container">
+
+<h2 id="veg">🥦 Vegetarian Specials</h2>
+
+<!-- 🍳 BREAKFAST -->
+<h3>Breakfast & Tiffins</h3>
+<div class="menu">
+<div class="card"><img src="https://cdn.pixabay.com/photo/2017/06/16/11/38/breakfast-2408818_1280.jpg"><h3>Idli</h3><p>₹50</p><button onclick="add('Idli',50)">Add</button></div>
+<div class="card"><img src="https://vismaifood.com/storage/app/uploads/public/8b4/19e/427/thumb__700_0_0_0_auto.jpg"><h3>Masala Dosa</h3><p>₹90</p><button onclick="add('Masala Dosa',90)">Add</button></div>
+<div class="card"><img src="https://instamart-media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_960,w_960//InstamartAssets/2/sambar_vada.webp?updatedAt=1730797766736"><h3>Medu Vada</h3><p>₹40</p><button onclick="add('Medu Vada',40)">Add</button></div>
+</div>
+
+<!-- 🍛 MAIN COURSE -->
+<h3>Main Course</h3>
+<div class="menu">
+<div class="card"><img src="https://media.istockphoto.com/id/179085494/photo/indian-biryani.jpg?s=612x612&w=0&k=20&c=VJAUfiuavFYB7PXwisvUhLqWFJ20-9m087-czUJp9Fs="><h3>Veg Biryani</h3><p>₹150</p><button onclick="add('Veg Biryani',150)">Add</button></div>
+<div class="card"><img src="https://www.funfoodfrolic.com/wp-content/uploads/2022/05/Vegetable-Pulao-2.jpg"><h3>Veg Pulao</h3><p>₹130</p><button onclick="add('Veg Pulao',130)">Add</button></div>
+<div class="card"><img src="https://flavorquotient.com/wp-content/uploads/2025/04/Veg-Fried-Rice-FQ-9-2-copy.webp"><h3>Veg Fried Rice</h3><p>₹120</p><button onclick="add('Veg Fried Rice',120)">Add</button></div>
+</div>
+
+<!-- 🥗 STARTERS -->
+<h3>Starters</h3>
+<div class="menu">
+<div class="card"><img src="https://maharajachaap.com/wp-content/uploads/2018/09/paneer-tikka.jpg"><h3>Paneer Tikka</h3><p>₹160</p><button onclick="add('Paneer Tikka',160)">Add</button></div>
+<div class="card"><img src="https://zaikastreet.com/wp-content/uploads/2025/09/Untitled-design-59-1.png"><h3>Gobi Manchurian</h3><p>₹140</p><button onclick="add('Gobi Manchurian',140)">Add</button></div>
+<div class="card"><img src="https://t3.ftcdn.net/jpg/15/86/80/16/360_F_1586801641_vdjFbf71WMHA29nEVWYE492Eadrt0Xka.jpg"><h3>Veg Roll</h3><p>₹100</p><button onclick="add('Veg Roll',100)">Add</button></div>
+</div>
+
+<h2 id="nonveg">🍗 Non-Vegetarian Specials</h2>
+
+<!-- 🍛 MAIN COURSE -->
+<h3>Main Course</h3>
+<div class="menu">
+<div class="card"><img src="https://www.shutterstock.com/image-photo/traditional-chicken-biryani-served-brass-600nw-2622739739.jpg"><h3>Chicken Biryani</h3><p>₹200</p><button onclick="add('Chicken Biryani',200)">Add</button></div>
+<div class="card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtZ2zpnEb1fR70GIgE1Spk1mGj-IMthUXRrw&s"><h3>Mutton Biryani</h3><p>₹280</p><button onclick="add('Mutton Biryani',280)">Add</button></div>
+<div class="card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBccU4aMX2qz6DcyRdHF1VGjb6UBqMF644-w&s"><h3>Chicken Fried Rice</h3><p>₹160</p><button onclick="add('Chicken Fried Rice',160)">Add</button></div>
+<div class="card"><img src="https://static.vecteezy.com/system/resources/previews/054/317/669/non_2x/delicious-chicken-fried-rice-asian-cuisine-food-photography-png.png"><h3>Egg Fried Rice</h3><p>₹140</p><button onclick="add('Egg Fried Rice',140)">Add</button></div>
+<div class="card"><img src="https://c.ndtvimg.com/2020-01/n5beapg8_rice_625x300_23_January_20.jpg"><h3>prawn Biryani</h3><p>₹200</p><button onclick="add('Prawn Biryani',140)">Add</button></div>
+<div class="card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9ulg3w0NqbnxNTxtewVnbWpO6yvn8KvrgXA&s"><h3>Chicken curry</h3><p>₹150</p><button onclick="add('Chicken curry',140)">Add</button></div>
+</div>
+
+<!-- 🍗 STARTERS -->
+<h3>Starters</h3>
+<div class="menu">
+<div class="card"><img src="https://www.shutterstock.com/image-photo/chicken-65-spicy-deep-fried-600nw-1950502363.jpg"><h3>Chicken 65</h3><p>₹180</p><button onclick="add('Chicken 65',180)">Add</button></div>
+<div class="card"><img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2021/12/chicken-lollipop.jpg"><h3>Chicken Lollipop</h3><p>₹200</p><button onclick="add('Chicken Lollipop',200)">Add</button></div>
+<div class="card"><img src="https://flavorquotient.com/wp-content/uploads/2024/04/Chicken-Tikka-Kebab-FQ-4-3896.jpg"><h3>Chicken Tikka</h3><p>₹220</p><button onclick="add('Chicken Tikka',220)">Add</button></div>
+<div class="card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu6ns-0A3tySsD-hgu9hEyJF7yedQ6DhTapA&s"><h3>Fish Fry</h3><p>₹250</p><button onclick="add('Fish Fry',250)">Add</button></div>
+<div class="card"><img src="https://thumbs.dreamstime.com/b/popcorn-chicken-dish-consisting-small-bite-sized-pieces-have-been-breaded-fried-closeup-slate-table-230666188.jpg"><h3>Chicken popcorn</h3><p>₹150</p><button onclick="add('Chicken popcorn',250)">Add</button></div>
+<div class="card"><img src="https://png.pngtree.com/png-vector/20250816/ourmid/pngtree-indian-street-style-momos-with-sauce-design-png-image_16994521.webp"><h3>chicken momos</h3><p>₹120</p><button onclick="add('chicken momos',250)">Add</button></div>
+
+</div>
+
+<!-- 🍳 EGG ITEMS -->
+<h3>Egg Specials</h3>
+<div class="menu">
+<div class="card"><img src="https://www.healthyfood.com/wp-content/uploads/2018/02/Basic-omelette.jpg"><h3>Omelette</h3><p>₹60</p><button onclick="add('Omelette',60)">Add Cart</button></div>
+<div class="card"><img src="https://www.whiskaffair.com/wp-content/uploads/2020/04/Kerala-Style-Egg-Curry-2-3.jpg"><h3>Egg Curry</h3><p>₹120</p><button onclick="add('Egg Curry',120)">Add</button></div>
+<div class="card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpyu1JZQpkWcBulUrC-m1YHeuCnTK9UJbO9A&s"><h3>Boiled Eggs</h3><p>₹40</p><button onclick="add('Boiled Eggs',40)">Add</button></div>
+</div>
+
+
+<h2 id="softdrinks">SoftDrinks</h2>
+
+<h3>Soft Drinks</h3>
+<div class="menu">
+<div class="card"><img src="https://c8.alamy.com/comp/2H1JR48/stuttgart-germany-january-17-2021-coca-cola-coca-cola-coke-zero-sugar-in-a-bottle-lemonade-soft-drink-on-ice-cubes-portrait-format-in-stuttgart-2H1JR48.jpg"><h3>Coco cola</h3><p>₹40</p><button onclick="add('Coco cola',40)">Add</button></div>
+<div class="card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgownpj0W-udzxsQXfC__AAKsqT5oeVyqAVQ&s"><h3>Sprite</h3><p>₹30</p><button onclick="add('Sprite',30)">Add</button></div>
+<div class="card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQITQD5B4KUrFdIunpDLtestKdmJnCAaR2oyg&s"><h3>Thumbsup</h3><p>₹30</p><button onclick="add('Thumbsup',30)">Add</button></div>
+</div>
+
+
+<h2 id="freshjuices">Fresh Juices</h2>
+
+<h3>Fresh Juices</h3>
+<div class="menu">
+<div class="card"><img src="https://vaya.in/recipes/wp-content/uploads/2018/02/mango-frooti.jpg"><h3>Mango</h3><p>₹40</p><button onclick="add('Mango',60)">Add</button></div>
+<div class="card"><img src="https://img.freepik.com/premium-photo/refreshing-minimal-style-green-grape-juice-glass-ai-generated_804788-36672.jpg"><h3>Grapes</h3><p>₹30</p><button onclick="add('Grapes',50)">Add</button></div>
+<div class="card"><img src="https://media.istockphoto.com/id/485524950/tr/foto%C4%9Fraf/glass-of-fresh-watermelon-juice-on-wood.jpg?s=612x612&w=0&k=20&c=J_hN3T0DjhlDIAaEQ-eP4Al7oI3v133qWwmX0PvCrOw="><h3>Watermelon</h3><p>₹30</p><button onclick="add('Watermelon',30)">Add</button></div>
+</div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-location">
+
+  <h2 class="section-title">Contact | Booking | Location</h2>
+
+  <div class="contact-location-wrapper">
+
+    <!-- LEFT: CONTACT -->
+    <div class="box left-box">
+
+      <h3>📩 Contact Us</h3>
+
+      <form class="contact-box" onsubmit="sendMessage(event)">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message"></textarea>
+        <button type="submit">Send</button>
+      </form>
+
+    </div>
+
+    <!-- MIDDLE: BOOK TABLE -->
+    <div class="box middle-box">
+
+      <h3>🪑 Book Table</h3>
+
+      <form class="contact-box" onsubmit="bookTable(event)">
+        <input type="text" placeholder="Name" required>
+        <input type="tel" placeholder="Phone" required>
+
+        <select required>
+          <option value="">People</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4+</option>
+        </select>
+        <input type="time" required>
+
+        <button type="submit">Book Now</button>
+      </form>
+
+    </div>
+
+    <!-- RIGHT: LOCATION -->
+    <div class="box right-box">
+
+      <h3>📍 Location</h3>
+
+      <iframe
+        src="https://maps.google.com/maps?q=andhra pradesh&output=embed">
+      </iframe>
+
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- ABOUT -->
+    <div class="footer-box">
+      <h3>Food Court</h3>
+      <p>Delicious food delivered fast and fresh.</p>
+    </div>
+
+    <!-- LEARN MORE -->
+    <div class="footer-box">
+      <h3>Learn More</h3>
+
+      <a href="#">Security</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Help</a>
+
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="footer-box">
+      <h3>Follow Us</h3>
+
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+
+    </div>
+
+    <!-- CONTACT (NOW INSIDE CONTAINER ✔) -->
+    <div class="footer-box">
+      <h3>Contact</h3>
+      <p>📍 Andhra Pradesh, India</p>
+      <p>📞 +91 9876543210</p>
+      <p>📧 foodcourt@gmail.com</p>
+    </div>
+
+    <!-- RATING -->
+<div class="footer-box">
+  <h3>⭐ Ratings</h3>
+
+  <p>Food Quality &Delivery</p>
+  <div class="stars">⭐⭐⭐⭐⭐ <span>4.8</span></div>
+
+</div>
+
+  </div>
+
+  <!-- FOOTER BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2026 Food Court | All Rights Reserved</p>
+  </div>
+
+</footer>
+<!-- BOOKING POPUP -->
+<div id="bookingPopup" class="popup-overlay">
+  <div class="popup-box">
+    <h2>🎉 Booking Confirmed!</h2>
+    <p>Your table has been successfully booked.</p>
+    <p>We are waiting for you 🍽️</p>
+
+    <button onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+<div id="contactPopup" class="popup-overlay">
+
+  <div class="popup-card">
+
+    <div class="popup-icon">🎉</div>
+
+    <h2>Message Sent!</h2>
+    <p>Thank you for contacting Food Court 🍽️</p>
+    <p>We will respond very soon.</p>
+
+    <button onclick="closeContactPopup()">OK</button>
+
+  </div>
+
+</div>
+<div id="cartPanel" class="cart-panel"></div>
+<!-- 💳 PAYMENT POPUP -->
+<div id="paymentPopup" class="popup-overlay">
+  <div class="popup-box">
+    <h2>💳 Select Payment</h2>
+
+    <button onclick="pay('UPI')">UPI</button>
+    <button onclick="pay('Card')">Credit/Debit Card</button>
+    <button onclick="pay('COD')">Cash on Delivery</button>
+
+    <br><br>
+    <button onclick="closePayment()">Cancel</button>
+  </div>
+</div>
+<!-- 🔐 SIGNUP POPUP -->
+<div id="signupPopup" class="popup-overlay">
+  <div class="popup-box modern-popup">
+
+    <h2>✨ Create Account</h2>
+
+    <input id="suUser" placeholder="Enter Username">
+    <input id="suPass" type="password" placeholder="Enter Password">
+
+    <button class="main-btn" onclick="signup()">Create Account</button>
+    <button class="secondary-btn" onclick="closeSignup()">Cancel</button>
+
+  </div>
+</div>
+
+<!-- 🔐 LOGIN POPUP -->
+<div id="loginPopup" class="popup-overlay">
+  <div class="popup-box">
+    <h2>Login</h2>
+    <input id="liUser" placeholder="Username">
+    <input id="liPass" type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <button onclick="closeLogin()">Close</button>
+  </div>
+</div>
+<div id="successPopup" class="popup-overlay">
+  <div class="popup-box modern-popup">
+    <h2>✅ Success</h2>
+    <p id="successText">Done</p>
+    <button class="main-btn" onclick="closeSuccess()">OK</button>
+  </div>
+</div>
+</div>
+<script src="./js/script.js">
+</script>
+</body>
+</html>
